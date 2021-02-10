@@ -37,10 +37,3 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'Free Trial (a1b2b75a-9dfd-480b-9b03-d442a2e5aeb6)'
-        appType: 'webApp'
-        WebAppName: 'webapptest1002'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
