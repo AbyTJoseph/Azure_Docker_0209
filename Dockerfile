@@ -1,4 +1,8 @@
-FROM tomcat:alpine
+FROM nginx:latest
 
-RUN ["rm", "-fr", "/usr/local/tomcat/webapps/ROOT"]
-COPY ./build/libs/docker-tomcat-java-example.war /usr/local/tomcat/webapps/ROOT.war
+COPY index.html /usr/share/nginx/html
+COPY linux.png /usr/share/nginx/html
+
+EXPOSE 80 443 	
+
+CMD ["nginx", "-g", "daemon off;"]
